@@ -39,7 +39,7 @@ Including an example of how to use your role (for instance, with variables passe
 ```yaml
     - hosts: localhost
       roles:
-         - { role: jekyll-docker, user_name: richard, user_id: 1001, group_name: richard, group_id: 1001, become: true, become_user: richard }
+         - { role: rattermyer.jekyll-docker, user_name: richard, user_id: 1001, group_name: richard, group_id: 1001, become: true, become_user: richard }
 ```
 
 License
