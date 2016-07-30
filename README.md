@@ -47,7 +47,7 @@ BSD
 Author Information
 ------------------
 Richard Attermeyer
-http://www.rattermyer.de
-https://github.com/rattermeyer
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+* [Blog](http://www.rattermyer.de)
+* [Github](https://github.com/rattermeyer)
+* [Twitter](https://twitter.com/rattermeyer)
