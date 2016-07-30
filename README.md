@@ -1,31 +1,43 @@
-Role Name
-=========
+Jekyll Docker
+=============
 
-A brief description of the role goes here.
+This role creates a docker image with Jekyll and an alias to run jekyll from the command line.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Docker must be installed. This role does not declare a direct dependency on
+a docker role.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+More or less all the listed variables should be treated as mandatory.
+Setting these correctly enables running `jekyll` in user home directoy
+without mangling with directory ownership.
+It ensures that in the docker container jekyll is run with same user and group id
+as on the host.
+```
+# the user name is a mandatory role variable that must be specified
+user_name: richard
+user_id: 1001
+group_name: "{{user_name}}"
+group_id: 1001
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Currently none.
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+    - hosts: localhost
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: jekyll-docker, user_name: richard, user_id: 1001, group_name: richard, group_id: 1001, become: true, become_user: richard }
 
 License
 -------
@@ -34,5 +46,8 @@ BSD
 
 Author Information
 ------------------
+Richard Attermeyer
+http://www.rattermyer.de
+https://github.com/rattermeyer
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
