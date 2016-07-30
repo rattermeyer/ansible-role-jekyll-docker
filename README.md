@@ -17,7 +17,8 @@ Setting these correctly enables running `jekyll` in user home directoy
 without mangling with directory ownership.
 It ensures that in the docker container jekyll is run with same user and group id
 as on the host.
-```
+
+```yaml
 # the user name is a mandatory role variable that must be specified
 user_name: richard
 user_id: 1001
@@ -35,9 +36,11 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
+```yaml
     - hosts: localhost
       roles:
          - { role: jekyll-docker, user_name: richard, user_id: 1001, group_name: richard, group_id: 1001, become: true, become_user: richard }
+```
 
 License
 -------
