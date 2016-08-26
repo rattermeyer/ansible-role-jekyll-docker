@@ -32,4 +32,4 @@
 - name: install alias
   lineinfile:
     dest: "/home/{{user_name}}/.bash_aliases"
-    line: "alias jekyll='docker run --rm -v \"$PWD{{colon}}/src\" jekyll'"
+    line: "alias jekyll='docker run --rm -v \"$PWD{{colon}}/src\" -p 4000:4000 jekyll'"
